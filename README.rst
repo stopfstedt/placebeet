@@ -3,6 +3,8 @@ Placebeet
 
 Placebeet is placeholder image service, featuring Beetlejuice the French Bulldog.
 
+.. image:: http://placebeet.com/500
+
 Usage
 -----
 
