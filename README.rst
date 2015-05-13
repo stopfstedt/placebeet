@@ -1,7 +1,7 @@
 Placebeet
 ==============
 
-This is the code repository for `placebeet.com <http://placebeet.com/500>`_, an placeholder image service featuring Beetlejuice the French Bulldog.
+This is the code repository for `placebeet.com <http://placebeet.com/500>`_, a placeholder image service featuring Beetlejuice the French Bulldog.
 
 .. image:: http://placebeet.com/500
 
