@@ -1,31 +1,36 @@
-Silex Skeleton
+Placebeet
 ==============
 
-Welcome to the Silex Skeleton - a fully-functional Silex application that you
-can use as the skeleton for your new applications.
+Placebeet is placeholder image service, featuring Beetlejuice the French Bulldog.
 
-This document contains information on how to start using the Silex Skeleton.
+Usage
+-----
 
-Creating a Silex Application
-----------------------------
+Get a random 300 pixel wide square image.::
 
-Silex uses `Composer`_ to ease the creation of a new project:
+    http://placebeet.com/300
 
-.. code-block:: console
+Get a random rectangular image that's 300px wide by 200px high.::
 
-    $ composer create-project fabpot/silex-skeleton path/to/install ~2.0@dev
+    http://placebeet.com/300/200
+    http://placebeet.com/300x200
 
-Composer will create a new Silex project under the `path/to/install` directory.
+Get an image that shows its dimensions.::
 
-Browsing the Demo Application
------------------------------
+    http://placebeet.com/d/300x200
 
-Congratulations! You're now ready to use Silex.
+Get a greyscale image.::
 
-To see a real-live Silex page in action, start the PHP built-in web server with
-command:
+    http://placebeet.com/300x200/g
 
-.. code-block:: console
+All together now, whilst requesting a specific image (1-9).::
+
+    http://placebeet.com/d/300x200/g?image=7
+
+Running the application locally
+-------------------------------
+
+::
 
     $ cd path/to/install
     $ composer run
@@ -40,42 +45,18 @@ This distribution is meant to be the starting point for your Silex applications.
 A great way to start learning Silex is via the `Documentation`_, which will
 take you through all the features of Silex.
 
-What's inside?
----------------
+Copyright and Attribution
+-------------------------
 
-The Silex Skeleton is configured with the following service providers:
+`Silex <http://silex.sensiolabs.org/>`_ and `Silex Skeleton <https://github.com/silexphp/Silex-Skeleton>`_:
+Copyright (c) 2010 - 2015 Fabien Potencier, published under MIT license.
 
-* `UrlGeneratorServiceProvider`_ - Provides a service for generating URLs for
-  named routes.
+`Droid Sans Mono font <http://www.fontsquirrel.com/fonts/droid-sans-mono>`_ :
+Copyright by Google and published under Apache 2.0 license.
 
-* `ValidatorServiceProvider`_ - Provides a service for validating data. It is
-  most useful when used with the FormServiceProvider, but can also be used
-  standalone.
+All other code by Stefan Topfstedt, published under MIT license.
 
-* `ServiceControllerServiceProvider`_ - As your Silex application grows, you
-  may wish to begin organizing your controllers in a more formal fashion.
-  Silex can use controller classes out of the box, but with a bit of work,
-  your controllers can be created as services, giving you the full power of
-  dependency injection and lazy loading.
+Regal poses by Beet. All photos by `Vanessa <http://www.atomic-canine.com/>`_, published in the public domain.
 
-* `TwigServiceProvider`_ - Provides integration with the Twig template engine.
+100% Inspiration by `{placekitten} <http://placekitten.com>`_ and `placehold.it http://placekitten.com`_.
 
-* `WebProfilerServiceProvider`_ - Enable the Symfony web debug toolbar and
-  the Symfony profiler in your Silex application when developing.
-
-* `MonologServiceProvider`_ - Enable logging in the development environment.
-
-Read the `Providers`_ documentation for more details about Silex Service
-Providers.
-
-Enjoy!
-
-.. _Composer: http://getcomposer.org/
-.. _Documentation: http://silex.sensiolabs.org/documentation
-.. _UrlGeneratorServiceProvider: http://silex.sensiolabs.org/doc/providers/url_generator.html
-.. _ValidatorServiceProvider: http://silex.sensiolabs.org/doc/providers/validator.html
-.. _ServiceControllerServiceProvider: http://silex.sensiolabs.org/doc/providers/service_controller.html
-.. _TwigServiceProvider: http://silex.sensiolabs.org/doc/providers/twig.html
-.. _WebProfilerServiceProvider: http://github.com/silexphp/Silex-WebProfiler
-.. _MonologServiceProvider: http://silex.sensiolabs.org/doc/providers/monolog.html
-.. _Providers: http://silex.sensiolabs.org/doc/providers.html
