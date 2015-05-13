@@ -29,13 +29,14 @@ All together now, whilst requesting a specific image (1-9).::
 
     http://placebeet.com/d/300x200/g?image=7
 
-Running the application locally
+Installing and running the application locally
 -------------------------------
 
-::
+.. code-block:: console
 
     $ cd path/to/install
-    $ composer run
+    $ composer update # installs dependencies
+    $ composer run # runs the PHP internal server
 
 Then, browse to http://localhost:8888/.
 
