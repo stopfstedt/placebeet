@@ -2,17 +2,8 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
-
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html', array());
-})
-->bind('homepage')
-;
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
@@ -29,3 +20,107 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
 
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
+
+//
+// Placebeet routing
+//
+
+// simple callback method, casts a given string to integer.
+$intvalConversionCallback = function ($val) {
+    return (int) $val;
+};
+
+// routes
+$app->get('/', 'placebeet.controller.default:indexAction')
+  ->value('width', 200)
+  ->value('greyscale', FALSE)
+  ->value('watermark', FALSE);
+
+$app->get('/{width}/', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->value('greyscale', FALSE)
+  ->value('watermark', FALSE);
+
+$app->get('/{width}/{height}', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', FALSE)
+  ->value('watermark', FALSE);
+
+$app->get('/{width}x{height}', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', FALSE)
+  ->value('watermark', FALSE);
+
+$app->get('/d/{width}', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->value('greyscale', FALSE)
+  ->value('watermark', TRUE);
+
+$app->get('/d/{width}/{height}', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', FALSE)
+  ->value('watermark', TRUE);
+
+$app->get('/d/{width}x{height}', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', FALSE)
+  ->value('watermark', TRUE);
+
+$app->get('/d/{width}/g', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->value('greyscale', TRUE)
+  ->value('watermark', TRUE);
+
+$app->get('/d/{width}/{height}/g', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', TRUE)
+  ->value('watermark', TRUE);
+
+$app->get('/d/{width}x{height}/g', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', TRUE)
+  ->value('watermark', TRUE);
+
+
+$app->get('/{width}/g', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->value('greyscale', TRUE)
+  ->value('watermark', FALSE);
+
+$app->get('/{width}/{height}/g', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', TRUE)
+  ->value('watermark', FALSE);
+
+$app->get('/{width}x{height}/g', 'placebeet.controller.default:indexAction')
+  ->assert('width', '\d+')
+  ->assert('height', '\d+')
+  ->convert('width', $intvalConversionCallback)
+  ->convert('height', $intvalConversionCallback)
+  ->value('greyscale', TRUE)
+  ->value('watermark', FALSE);
