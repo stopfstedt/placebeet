@@ -31,10 +31,11 @@ All together now, whilst requesting a specific image (1-9).::
 
 Installing and running the application locally
 -------------------------------
+Clone this repo, then
 
 .. code-block:: console
 
-    $ cd path/to/install
+    $ cd placebeet
     $ composer update # installs dependencies
     $ composer run # runs the PHP internal server
 
