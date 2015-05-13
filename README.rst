@@ -50,5 +50,5 @@ All other code by Stefan Topfstedt, published under MIT license.
 
 Regal poses by Beet. All photos by `Vanessa <http://www.atomic-canine.com/>`_, published in the public domain.
 
-100% Inspiration by `{placekitten} <http://placekitten.com>`_ and `placehold.it http://placekitten.com`_.
+100% Inspiration by `{placekitten} <http://placekitten.com>`_ and `placehold.it <http://placekitten.com>`_.
 
