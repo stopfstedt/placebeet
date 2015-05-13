@@ -37,14 +37,6 @@ Running the application locally
 
 Then, browse to http://localhost:8888/.
 
-Getting started with Silex
---------------------------
-
-This distribution is meant to be the starting point for your Silex applications.
-
-A great way to start learning Silex is via the `Documentation`_, which will
-take you through all the features of Silex.
-
 Copyright and Attribution
 -------------------------
 
